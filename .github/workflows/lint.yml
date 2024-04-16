@@ -26,10 +26,10 @@ jobs:
         run: npm install
 
       - name: Run ESLint
-        run: npx eslint --config .eslintrc.js ./src/*.js
+        run: npx eslint --config ./eslintrc.js ./src/*.js
 
       - name: Run Stylelint
-        run: npx stylelint --config .stylelint ./src/*.css
+        run: npx stylelint --config ./stylelint ./src/*.css
 
       - name: Run HTMLHint
-        run: npx eslint --config .eslintrc.js ./src/*.html
+        run: npx eslint --config ./eslintrc.js ./src/*.html
