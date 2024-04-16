@@ -1,0 +1,35 @@
+name: Lint Code
+
+on:
+  pull_request:
+    branches:
+      - '*'
+  push:
+    branches:
+      - '*'
+
+jobs:
+  lint:
+    name: Run Linters
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20.11.1'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run ESLint
+        run: npx eslint --config .eslintrc.js ./src/*.js
+
+      - name: Run Stylelint
+        run: npx stylelint --config .stylelint ./src/*.css
+
+      - name: Run HTMLHint
+        run: npx eslint --config .eslintrc.js ./src/*.html
